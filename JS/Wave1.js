@@ -296,6 +296,21 @@ class Wave1 extends Phaser.Scene
                 }
             }
 
+            var enemiesAlive = false;
+        this.enemies.children.iterate(function (child) { //sets initial position, velocity
+        if(child.active) {
+            enemiesAlive = true;
+        }
+        }, this);
+        this.pterodactyls.children.iterate(function (child) { //sets initial position, velocity
+        if(child.active) {
+            enemiesAlive = true;
+        }
+        }, this);
+        if(!enemiesAlive){
+            this.GameOver();
+        }
+
         }
 
         function hitPlatform() {
@@ -575,6 +590,20 @@ class Wave1 extends Phaser.Scene
        {
         this.Lives();
        }
+       var enemiesAlive = false;
+       this.enemies.children.iterate(function (child) { //sets initial position, velocity
+        if(child.active) {
+            enemiesAlive = true;
+        }
+        }, this);
+        this.pterodactyls.children.iterate(function (child) { //sets initial position, velocity
+        if(child.active) {
+            enemiesAlive = true;
+        }
+        }, this);
+        if(!enemiesAlive){
+            this.GameOver();
+        }
        /*if(player.y+playerHeight*playerScale-5<enemy.y)
        {
            enemy.disableBody(true,true);
